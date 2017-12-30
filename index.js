@@ -1,12 +1,17 @@
-const mongoose = require('mongoose');
 const express = require('express');
-require('./services/passport');
+const mongoose = require('mongoose');
+
+// init models
+require('./models/User');
 
 // connect mongodb
 mongoose.connect(process.env.DATABASE, {useMongoClient: true});
 
 const app = express();
-// auth routes
+
+// passport
+require('./services/passport');
+// pasport auth routes
 require('./routes/authRoutes')(app);
 
 
