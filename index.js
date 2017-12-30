@@ -1,8 +1,11 @@
+const mongoose = require('mongoose');
 const express = require('express');
 require('./services/passport');
 
-const app = express();
+// connect mongodb
+mongoose.connect(process.env.DATABASE, {useMongoClient: true});
 
+const app = express();
 // auth routes
 require('./routes/authRoutes')(app);
 
