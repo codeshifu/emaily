@@ -4,6 +4,10 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 // models
 const User = require('mongoose').model('user');
 
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.SECRET,
