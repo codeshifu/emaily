@@ -2,14 +2,15 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+
 // connect mongodb
 mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise;
-// init models
 require('./models/User');
 
-// passport
-require('./services/passport');
+require('./services/passport'); // google strategy
+require('./appMiddlewares')(app); // app middleware
+
 // pasport auth routes
 require('./routes/authRoutes')(app);
 
