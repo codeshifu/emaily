@@ -1,10 +1,10 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const {database} = require('./config/keys');
 
 // connect mongodb
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(database);
 mongoose.Promise = global.Promise;
 require('./models/User');
 
