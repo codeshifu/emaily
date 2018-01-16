@@ -5,7 +5,9 @@ module.exports = (app) => {
         scope: ['profile', 'email']
     }));
 
-    app.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/'}));
+    app.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/login'}), (req, res) => {
+        res.redirect('/surveys');
+    });
 
     app.get('/api/me', (req, res) => {
         res.send(req.user);
@@ -13,6 +15,6 @@ module.exports = (app) => {
 
     app.get('/api/logout', (req, res) => {
         req.logout();
-        res.send(req.user);
+        res.redirect('/');
     });
 };
