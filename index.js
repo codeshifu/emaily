@@ -1,21 +1,21 @@
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const {database} = require('./config/keys');
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+const {database} = require('./config/keys')
 
 // connect mongodb
-mongoose.connect(database);
-mongoose.Promise = global.Promise;
-require('./models/User');
+mongoose.connect(database)
+mongoose.Promise = global.Promise
+require('./models/User')
 
-require('./services/passport'); // google strategy
-require('./appMiddlewares')(app); // app middleware
+require('./services/passport') // google strategy
+require('./appMiddlewares')(app) // app middleware
 
 // routes
-require('./routes/authRoutes')(app);
-require('./routes/billingRoutes')(app);
+require('./routes/authRoutes')(app)
+require('./routes/billingRoutes')(app)
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
-				console.log(`Server listening on port ${PORT}`);
-});
+  console.log(`Server listening on port ${PORT}`)
+})

@@ -9,15 +9,15 @@ import reduxThunk from 'redux-thunk'
 import App from './components/App'
 
 // reducers
-import reducers from './reducers';
+import reducers from './reducers'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(reduxThunk)));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(reduxThunk)))
 
 const jsx = (
-    <Provider store={store}>
-        <App/>
-    </Provider>
+  <Provider store={store}>
+    <App />
+  </Provider>
 )
 
-ReactDOM.render(jsx, document.querySelector('#root'));
+ReactDOM.render(jsx, document.querySelector('#root'))
