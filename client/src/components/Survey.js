@@ -3,7 +3,7 @@ import React from 'react'
 const Survey = () => {
   return (
     <div>
-        Survey
+      <h2>Survey</h2>
     </div>
   )
 }
