@@ -7,6 +7,7 @@ const {database} = require('./config/keys')
 mongoose.connect(database)
 mongoose.Promise = global.Promise
 require('./models/User')
+require('./models/Survey')
 
 require('./services/passport') // google strategy
 require('./appMiddlewares')(app) // app middleware
