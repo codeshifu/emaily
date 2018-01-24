@@ -1,10 +1,21 @@
 const mongoose = require('mongoose')
-const {Schema} = mongoose
+const {
+  Schema
+} = mongoose
 
 const SurveySchema = new Schema({
-  title: String,
-  body: String,
-  subject: String,
+  title: {
+    type: String,
+    required: true
+  },
+  body: {
+    type: String,
+    required: true
+  },
+  subject: {
+    type: String,
+    required: true
+  },
   recipients: [String]
 })
 

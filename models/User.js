@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const UserSchema = Schema({
-  googleId: String,
+  googleId: {
+    type: String,
+    required: true
+  },
   credits: {
     type: Number,
     default: 0
