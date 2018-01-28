@@ -5,6 +5,10 @@ const {
 } = mongoose
 
 const SurveySchema = new Schema({
+  _user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   title: {
     type: String,
     required: true
