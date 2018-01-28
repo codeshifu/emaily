@@ -10,7 +10,7 @@ module.exports = (app) => {
       title,
       body,
       subject,
-      recipients: recipients.split(',').map((email) => ({email}))
+      recipients: recipients.split(',').map((email) => ({email: email.trim()}))
     })
   })
 }
