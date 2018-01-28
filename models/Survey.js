@@ -30,7 +30,10 @@ const SurveySchema = new Schema({
     type: Number,
     default: 0
   },
-  dateSent: Date,
+  dateSent: {
+    type: Date,
+    default: Date.now()
+  },
   lastResponded: Date
 })
 
