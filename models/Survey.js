@@ -29,7 +29,9 @@ const SurveySchema = new Schema({
   no: {
     type: Number,
     default: 0
-  }
+  },
+  dateSent: Date,
+  lastResponded: Date
 })
 
 mongoose.model('survey', SurveySchema)
