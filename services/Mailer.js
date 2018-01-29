@@ -6,6 +6,8 @@ class Mailer extends helper.Mail {
   constructor ({subject, recipients}, content) {
     super()
 
+    this.sendgridObj = sendgrid(keys.sendGridKey)
+
     this.from_email = new helper.Email('no-reply@emaily.com')
     this.subject = subject
     this.body = new helper.Content('text/html', content)
@@ -47,6 +49,23 @@ class Mailer extends helper.Mail {
     })
 
     this.addPersonalization(personlize)
+  }
+
+  /**
+   * sends email
+   *
+   * @returns SendGrid.Rest.Response
+   * @memberof Mailer
+   */
+  async sendMail () {
+    const request = this.sendgridObj.emptyRequest({
+      method: 'POST',
+      path: '/v3/mail/send',
+      body: this.toJSON()
+    })
+
+    const response = await this.sendgridObj.API(request)
+    return response
   }
 }
 
