@@ -57,7 +57,7 @@ class Mailer extends helper.Mail {
    * @returns SendGrid.Rest.Response
    * @memberof Mailer
    */
-  async sendMail () {
+  async send () {
     const request = this.sendgridObj.emptyRequest({
       method: 'POST',
       path: '/v3/mail/send',
