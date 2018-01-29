@@ -1,6 +1,7 @@
 const requireLogin = require('../appMiddlewares/requireLogin')
 const requireCredits = require('../appMiddlewares/requireCredits')
 const Survey = require('mongoose').model('surveys')
+const surveyTemplate = require('../services/emailTemplates/survey')
 
 module.exports = (app) => {
   app.post('/api/surveys', requireLogin, requireCredits, (req, res) => {
